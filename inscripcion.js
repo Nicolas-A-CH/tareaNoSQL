@@ -16,39 +16,58 @@
         }, false)
     })
 })()
-document.addEventListener("DOMContentLoaded", function () {
-    const relacionAcudienteSelect = document.getElementById("RelaciónAcudiente");
-    const justificacionAcudienteDiv = document.getElementById("contenedor_JustificacionAcudiente");
-    const justificacionAcudienteInput = document.getElementById("justificacionAcudiente");
+function validarFechaNacimientoYEdad() {
+    const inputFechaNacimiento = document.getElementById('FechaNacimiento');
+    const inputEdad = document.getElementById('Edad');
 
-    relacionAcudienteSelect.addEventListener("change", function () {
-        const selectedOption = relacionAcudienteSelect.value;
+    inputFechaNacimiento.addEventListener('input', function () {
+        const fechaNacimiento = new Date(this.value);
+        const fechaActual = new Date();
 
-        // Ocultar todos los campos
-        justificacionAcudienteDiv.style.display = "none";
+        if (isNaN(fechaNacimiento.getTime())) {
+            // La fecha ingresada no es válida
+            this.setCustomValidity('Se requiere una fecha válida.');
+            this.parentElement.classList.add('was-validated');
+        } else if (fechaNacimiento > fechaActual) {
+            // La fecha ingresada es en el futuro
+            this.setCustomValidity('La fecha de nacimiento no puede ser en el futuro.');
+            this.parentElement.classList.add('was-validated');
+        } else {
+            // La fecha ingresada es válida
+            this.setCustomValidity('');
+            this.parentElement.classList.remove('was-validated');
 
-        // Desactivar la propiedad required en todos los campos de fecha y hora
-        justificacionAcudienteInput.required = false;
-
-        // Mostrar solo el campo correspondiente a "Otro"
-        if (selectedOption === "Otro") {
-            justificacionAcudienteDiv.style.display = "block";
-            justificacionAcudienteInput.required = true;
+            // Calcular edad
+            const diff = fechaActual - fechaNacimiento;
+            const edad = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+            inputEdad.value = edad;
         }
     });
-});
 
-// Función para limpiar todos los campos del formulario
-function limpiarCampos() {
-    // Obtén el formulario por su ID
-    var formulario = document.getElementById('formRegistroUsuario');
+    inputEdad.addEventListener('input', function () {
+        const edad = parseInt(this.value);
+        const fechaNacimiento = new Date(inputFechaNacimiento.value);
+        const fechaLimite = new Date(fechaNacimiento);
+        fechaLimite.setFullYear(fechaNacimiento.getFullYear() + edad);
 
-    // Restablece el formulario, lo cual limpia todos los campos
-    formulario.reset();
+        const fechaActual = new Date();
 
-    // También puedes restablecer la validación del formulario si es necesario
-    formulario.classList.remove('was-validated');
+        if (isNaN(edad) || edad < 0) {
+            // La edad ingresada no es válida
+            this.setCustomValidity('Se requiere una edad válida.');
+            this.parentElement.classList.add('was-validated');
+        } else if (fechaLimite > fechaActual) {
+            // La edad ingresada resulta en una fecha de nacimiento en el futuro
+            this.setCustomValidity('La fecha de nacimiento resultante con esta edad sería en el futuro.');
+            this.parentElement.classList.add('was-validated');
+        } else {
+            // La edad ingresada es válida
+            this.setCustomValidity('');
+            this.parentElement.classList.remove('was-validated');
+        }
+    });
 }
-
-// Asigna la función al evento click del botón "Nuevo aprendiz"
-document.getElementById('btnNuevoAprendiz').addEventListener('click', limpiarCampos);
+// Llama a la función cuando el DOM está completamente cargado
+document.addEventListener('DOMContentLoaded', function () {
+    validarFechaNacimientoYEdad();
+});
