@@ -67,6 +67,18 @@ function validarFechaNacimientoYEdad() {
         }
     });
 }
+function mostrarCampoOtro() {
+    var select = document.getElementById("Parentesco");
+    var otroCampo = document.getElementById("campoOtro");
+
+    if (select.value === "Otro") {
+        otroCampo.style.display = "block";
+        document.getElementById("Otro").required = true;
+    } else {
+        otroCampo.style.display = "none";
+        document.getElementById("Otro").required = false;
+    }
+}
 // Llama a la función cuando el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', function () {
     validarFechaNacimientoYEdad();
