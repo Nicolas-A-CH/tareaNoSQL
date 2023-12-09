@@ -33,6 +33,11 @@ function guardar() {
                 NombreAprendiz && NumeroDocumento && NumeroTelefono && Parentesco && 
                 Programa && TipoDocumento
             ) {
+                 // Obtener el valor de Otro si Parentesco es "Otro"
+                 const parentescoValue = (Parentesco === "Otro") ? Otro : Parentesco;
+
+                 // Verificar si el valor de Parentesco es un valor predefinido
+                 const parentescoEsPredefinido = ["Padre", "Madre", "Esposo/a", "Abuelo/a", "Tio/a"].includes(parentescoValue); 
                 swal({
                     title: "¿Estás seguro de guardar estos datos?",
                     text: "Se agregarán a la base de datos.",
@@ -59,8 +64,8 @@ function guardar() {
                                     NombreAprendiz,
                                     NumeroDocumento: NumeroDocumento,
                                     NumeroTelefono,
-                                    Otro,
-                                    Parentesco,
+                                    Otro: parentescoEsPredefinido ? null : Otro,
+                                    Parentesco: parentescoEsPredefinido ? parentescoValue : null,
                                     Programa,
                                     TipoDocumento
                                 })

@@ -624,48 +624,6 @@
           
           <button id="nuevoUsuario" type="button" class="btn btn-primary mr-auto">Nuevo Usuario</button>
           <a type="button" class="btn btn-success" onclick="guardar()">Guardar usuario</a>
-          <script>
-            function cancelar() {
-              swal({
-                title: "¿Estás seguro?",
-                text: "Todos los datos registrados se borrarán.",
-                icon: "warning",
-                buttons: ["Cancelar", "Sí, cancelar"],
-                dangerMode: true,
-              })
-                .then((willDelete) => {
-                  if (willDelete) {
-                    document.getElementById("ApellidoAcu").value = "";
-                    document.getElementById("ApellidoApre").value = "";
-                    document.getElementById("Barrio").value = "";
-                    document.getElementById("Colegio").value = "";
-                    document.getElementById("Correo").value = "";
-                    document.getElementById("Barrio").value = "";
-                    document.getElementById("Departamento").value = "";
-                    document.getElementById("Direccion").value = "";
-                    document.getElementById("Edad").value = "";
-                    document.getElementById("FechaNacimiento").value = "";
-                    document.getElementById("Jornada").value = "";
-                    document.getElementById("Municipio").value = "";
-                    document.getElementById("NombreAcu").value = "";
-                    document.getElementById("NombreApre").value = "";
-                    document.getElementById("Documento").value = "";
-                    document.getElementById("Telefono").value = "";
-                    document.getElementById("Parentesco").value = "";
-                    document.getElementById("Otro").value = "";
-                    document.getElementById("Programa").value = "";
-                    document.getElementById("TipoDocumento").value = "";
-                    document.getElementById("printNombres").value = "";
-                    document.getElementById("printApellidos").value = "";
-                    swal("Se eliminaron los datos.", {
-                      icon: "success",
-                    });
-
-                  } else {
-                    swal("Los datos aún siguen registrados.");
-                  }
-                });
-            }
           </script>
         </div>
     </div>
