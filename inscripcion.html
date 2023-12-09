@@ -5,21 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>tareaNoSQL</title>
-  <link rel="shortcut icon" href="Resources/LogoSENA.png" type="image/x-icon">
+  <link rel="shortcut icon" href="logo_sonic.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="inscripcion.js"></script>
+  <script src="Consultar.js"></script>
 </head>
-<header style="background-color: #001f3f; height: 100px;">
-  <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-start">
-      <div class="col-12 col-lg-12 d-flex justify-content-lg-center mt-3 mt-lg-0">
-        <img src="sena.png" alt="Logo de Servicio Nacional de Aprendizaje(SENA)" width="auto" height="40"
-          style="margin-top: 2%; margin-bottom: 10%;" />
-      </div>
-    </div>
-  </div>
+<header style="height: 100px;">
+  <img src="heder.jpg" alt="encabezado del sena">
 </header>
 
 <body>
@@ -36,8 +30,8 @@
             <h5 class="card-title">Información General</h5>
             <div class="row g-3">
               <div class="col-sm-6">
-                <label id="" for="document" class="form-label">Tipo de documento</label>
-                <select name="TipoDocumento" class="form-select" id="TipoDocumento" required>
+                <label for="document" class="form-label">Tipo de documento</label>
+                <select class="form-select" id="TipoDocumento" required>
                   <option value="">Elegir...</option>
                   <option value="CC">(C.C.) Cedula de Ciudadania</option>
                   <option value="CE">(C.E.) Cedula de Extranjeria</option>
@@ -49,7 +43,7 @@
               </div>
               <div class="col-sm-6">
                 <label id="" for="document" class="form-label">Número de documento</label>
-                <input name="Documento" type="number" class="form-control" id="Documento"
+                <input type="number" class="form-control" id="Documento"
                   placeholder="Documento aprendiz" required>
                 <div class="invalid-feedback">
                   Se requiere un numero válido.
@@ -57,7 +51,7 @@
               </div>
               <div class="col-sm-6">
                 <label id="" for="firstName" class="form-label">Nombre del aprendiz</label>
-                <input name="NombreApre" type="text" class="form-control" id="NombreApre" placeholder="Nombre aprendiz"
+                <input type="text" class="form-control" id="NombreApre" placeholder="Nombre aprendiz"
                   value="" required>
                 <div class="invalid-feedback">
                   Se requiere un nombre válido.
@@ -65,7 +59,7 @@
               </div>
               <div class="col-md-6">
                 <label id="" for="lastName" class="form-label">Apellido del aprendiz</label>
-                <input name="ApellidoApre" type="text" class="form-control" id="ApellidoApre"
+                <input type="text" class="form-control" id="ApellidoApre"
                   placeholder="Apellido aprendiz" value="" required>
                 <div class="invalid-feedback">
                   Se requiere un apellido válido.
@@ -74,7 +68,7 @@
               <div class="col-6">
                 <label for="Nacimiento" class="form-label">Fecha de nacimiento</label>
                 <div class="input-group has-validation">
-                  <input name="FechaNacimiento" type="date" class="form-control" id="FechaNacimiento"
+                  <input type="date" class="form-control" id="FechaNacimiento"
                     placeholder="Fecha de nacimiento" required>
                   <div class="invalid-feedback">
                     Se requiere una fecha válida.
@@ -84,7 +78,7 @@
               <div class="col-6">
                 <label for="Edad" class="form-label">Edad</label>
                 <div class="input-group has-validation">
-                  <input name="Edad" type="number" class="form-control" id="Edad" readonly required>
+                  <input type="number" class="form-control" id="Edad" readonly required>
                   <div class="invalid-feedback">
                     Se requiere una edad válida.
                   </div>
@@ -94,7 +88,7 @@
               <div class="col-sm-12">
                 <label for="colegio" class="form-label">Colegio donde obtuvo la titulacion bachiller</label>
                 <div class="input-group has-validation">
-                  <input name="colegio" type="text" class="form-control" id="Colegio" placeholder="Nombre del colegio"
+                  <input type="text" class="form-control" id="Colegio" placeholder="Nombre del colegio"
                     required>
                   <div class="invalid-feedback">
                     Se requiere un colegio válido.
@@ -110,7 +104,7 @@
             <div class="row g-3">
               <div class="col-md-6">
                 <label for="departamento" class="form-label">Departamento</label>
-                <select name="" class="form-select" id="Departamento" required>
+                <select class="form-select" id="Departamento" required>
                   <option value="">Elegir...</option>
                   <option value="Amazonas">Amazonas</option>
                   <option value="Antioquia">Antioquia</option>
@@ -464,7 +458,7 @@
               </script>
               <div class="col-md-6">
                 <label for="municipio" class="form-label">Municipio</label>
-                <select name="Municipio" class="form-select" id="Municipio" required>
+                <select class="form-select" id="Municipio" required>
                   <option value="">Elegir...</option>
                 </select>
                 <div class="invalid-feedback">
@@ -474,7 +468,7 @@
               <div class="col-sm-6">
                 <label for="Barrio" class="form-label">Barrio de residencia</label>
                 <div class="input-group has-validation">
-                  <input name="Barrio" type="text" class="form-control" id="Barrio" placeholder="Nombre del barrio"
+                  <input type="text" class="form-control" id="Barrio" placeholder="Nombre del barrio"
                     required>
                   <div class="invalid-feedback">
                     Se requiere un barrio válida.
@@ -484,7 +478,7 @@
               <div class="col-sm-6">
                 <label for="direccion" class="form-label">Dirección de residencia</label>
                 <div class="input-group has-validation">
-                  <input name="Direccion" type="text" class="form-control" id="Direccion"
+                  <input type="text" class="form-control" id="Direccion"
                     placeholder="Dirección residencia" required>
                   <div class="invalid-feedback">
                     Se requiere una direccion válida.
@@ -501,7 +495,7 @@
               <div class="col-md-6">
                 <label for="teléfono" class="form-label">Número de teléfono</label>
                 <div class="input-group has-validation">
-                  <input name="Telefono" type="number" class="form-control" id="Telefono"
+                  <input type="number" class="form-control" id="Telefono"
                     placeholder="Número teléfonico" required>
                   <div class="invalid-feedback">
                     Se requiere un teléfono válido.
@@ -511,7 +505,7 @@
               <div class="col-md-6">
                 <label for="Correo" class="form-label">Correo electrónico</label>
                 <div class="input-group has-validation">
-                  <input name="Correo" type="email" class="form-control" id="Correo" placeholder="Correo electrónico"
+                  <input type="email" class="form-control" id="Correo" placeholder="Correo electrónico"
                     required>
                   <div class="invalid-feedback">
                     Se requiere un correo válido.
@@ -527,7 +521,7 @@
             <div class="row g-3">
               <div class="col-md-6">
                 <label for="Jornada" class="form-label">Jornada</label>
-                <select name="Jornada" class="form-select" id="Jornada" required>
+                <select class="form-select" id="Jornada" required>
                   <option value="">Elegir...</option>
                   <option value="Mañana">Mañana</option>
                   <option value="Tarde">Tarde</option>
@@ -542,7 +536,7 @@
               <div class="col-sm-6">
                 <label for="Programa" class="form-label">Programa</label>
                 <div class="input-group has-validation">
-                  <select name="Programa" class="form-select" id="Programa" required>
+                  <select class="form-select" id="Programa" required>
                     <option value="">Elegir...</option>
                     <option value="Tecnólogo en ADSO">Tecnólogo en Análisis y Desarrollo de Software</option>
                     <option value="Tecnologo en Finanzas">Tecnólogo en Administración Bancaria y de Instituciones
@@ -568,7 +562,7 @@
               <div class="col-sm-6">
                 <label for="NombreAcu" class="form-label">Nombre del acudiente</label>
                 <div class="input-group has-validation">
-                  <input name="NombreAcu" type="text" class="form-control" id="NombreAcu" placeholder="Nombre acudiente"
+                  <input type="text" class="form-control" id="NombreAcu" placeholder="Nombre acudiente"
                     required>
                   <div class="invalid-feedback">
                     Se requiere un nombre válida.
@@ -578,7 +572,7 @@
               <div class="col-sm-6">
                 <label for="ApellidoAcu" class="form-label">Apellido del acudiente</label>
                 <div class="input-group has-validation">
-                  <input name="ApellidoAcu" type="text" class="form-control" id="ApellidoAcu"
+                  <input type="text" class="form-control" id="ApellidoAcu"
                     placeholder="Apellido acudiente" required>
                   <div class="invalid-feedback">
                     Se requiere un apellido válida.
@@ -587,7 +581,7 @@
               </div>
               <div class="col-md-6">
                 <label for="Parentesco" class="form-label">Parentesco</label>
-                <select name="Parentesco" class="form-select" id="Parentesco" onchange="mostrarCampoOtro()" required>
+                <select class="form-select" id="Parentesco" onchange="mostrarCampoOtro()" required>
                   <option value="">Elegir...</option>
                   <option value="Padre">Padre</option>
                   <option value="Madre">Madre</option>
@@ -601,7 +595,7 @@
               <div class="col-6" id="campoOtro" style="display: none;">
                 <label for="Otro" class="form-label">Otro parentesco</label>
                 <div class="input-group has-validation">
-                  <input name="Otro" type="text" class="form-control" id="Otro" placeholder="Parentesco">
+                  <input type="text" class="form-control" id="Otro" placeholder="Parentesco">
                   <div class="invalid-feedback">
                     Se requiere un valor válido.
                   </div>
@@ -625,40 +619,11 @@
           </div>
         </div>
 
-
-
-
         <div class="py-4 d-flex justify-content-between">
-          <a href="DataTable.html" type="button" class="btn btn-secondary">Consultar</a>
+          <a href="consulta.html" type="button" class="btn btn-secondary" onclick="consultar()">Consultar</a>
+          
           <button id="nuevoUsuario" type="button" class="btn btn-primary mr-auto">Nuevo Usuario</button>
-          <script type="text/javascript">
-            document.getElementById("nuevoUsuario").addEventListener("click", function () {
-              document.getElementById("ApellidoAcu").value = "";
-              document.getElementById("ApellidoApre").value = "";
-              document.getElementById("Barrio").value = "";
-              document.getElementById("Colegio").value = "";
-              document.getElementById("Correo").value = "";
-              document.getElementById("Barrio").value = "";
-              document.getElementById("Departamento").value = "";
-              document.getElementById("Direccion").value = "";
-              document.getElementById("Edad").value = "";
-              document.getElementById("FechaNacimiento").value = "";
-              document.getElementById("Jornada").value = "";
-              document.getElementById("Municipio").value = "";
-              document.getElementById("NombreAcu").value = "";
-              document.getElementById("NombreApre").value = "";
-              document.getElementById("Documento").value = "";
-              document.getElementById("Telefono").value = "";
-              document.getElementById("Parentesco").value = "";
-              document.getElementById("Otro").value = "";
-              document.getElementById("Programa").value = "";
-              document.getElementById("TipoDocumento").value = "";
-              document.getElementById("printNombres").value = "";
-              document.getElementById("printApellidos").value = "";
-            });
-          </script>
           <a type="button" class="btn btn-success" onclick="guardar()">Guardar usuario</a>
-          <button type="button" class="btn btn-danger ml-auto" onclick="cancelar()">Cancelar</button>
           <script>
             function cancelar() {
               swal({
@@ -706,6 +671,9 @@
     </div>
     </form>
   </div>
+  <footer>
+    <img src="footer.jpg" alt="profe no te enojes por esto ;-;">
+  </footer>
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

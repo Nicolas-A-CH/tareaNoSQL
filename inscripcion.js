@@ -79,6 +79,46 @@ function mostrarCampoOtro() {
         document.getElementById("Otro").required = false;
     }
 }
+document.addEventListener("DOMContentLoaded", function () {
+    // Agrega un evento click al botón con id "nuevoUsuario"
+    document.getElementById("nuevoUsuario").addEventListener("click", limpiarCampos);
+  });
+  
+  // Función para limpiar los campos del formulario
+  function limpiarCampos() {
+    // Obtén todos los elementos de formulario que deseas limpiar
+    const camposFormulario = [
+      "TipoDocumento",
+      "Documento",
+      "NombreApre",
+      "ApellidoApre",
+      "FechaNacimiento",
+      "Edad",
+      "Colegio",
+      "Departamento",
+      "Municipio",
+      "Barrio",
+      "Direccion",
+      "Telefono",
+      "Correo",
+      "Jornada",
+      "Programa",
+      "NombreAcu",
+      "ApellidoAcu",
+      "Parentesco",
+      "Otro"
+    ];
+  
+    // Recorre la lista de campos y establece el valor de cada campo como una cadena vacía
+    camposFormulario.forEach(function (campo) {
+      document.getElementById(campo).value = "";
+    });
+  
+    // Opcional: Puedes agregar más acciones de limpieza o reinicio aquí si es necesario
+  
+    // Muestra un mensaje indicando que los campos han sido limpiados
+    alert("Campos del formulario limpiados");
+  }
 // Llama a la función cuando el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', function () {
     validarFechaNacimientoYEdad();
